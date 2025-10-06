@@ -1,1 +1,48 @@
-/* Add your styles here */
+@import "media-queries.css";
+
+.mobile-nav-bar {
+    display: none;
+    width: 100%;
+    height: var(--lumo-size-xl);
+    justify-content: space-around;
+    align-items: stretch;
+
+    &[slot~="navbar-bottom"] {
+        display: flex;
+    }
+
+    & a {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--lumo-font-size-xs);
+
+        & vaadin-icon {
+            order: -1;
+        }
+    }
+}
+
+.user-details {
+    display: grid;
+    grid-template-areas: "avatar name" "avatar email";
+    grid-template-columns: auto 1fr;
+    grid-gap: var(--lumo-space-s) var(--lumo-space-m);
+    line-height: 1.0;
+    align-items: center;
+
+    & vaadin-avatar {
+        grid-area: avatar;
+    }
+    & .name {
+        grid-area: name;
+        font-size: var(--lumo-font-size-l);
+        font-weight: bold;
+        align-self: end;
+    }
+    & .email {
+        grid-area: email;
+        align-self: start;
+    }
+}

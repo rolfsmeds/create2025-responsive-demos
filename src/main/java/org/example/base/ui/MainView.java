@@ -19,6 +19,7 @@ public final class MainView extends Main {
     // TODO Replace with your own main view.
 
     MainView() {
+
         addClassNames(LumoUtility.Padding.MEDIUM, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.BoxSizing.BORDER);
         setSizeFull();

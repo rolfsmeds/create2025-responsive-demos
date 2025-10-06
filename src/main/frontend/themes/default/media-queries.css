@@ -1,0 +1,64 @@
+.switching-layout {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+
+    flex-direction: row;
+}
+
+
+@media (max-width: 800px) {
+    .switching-layout {
+        flex-direction: column;
+    }
+}
+
+/*
+.media-queries-view {
+    container-name: view-root;
+    container-type: inline-size;
+}
+
+@container view-root (width < 600px) {
+    .switching-layout {
+        flex-direction: column;
+    }
+}
+*/
+
+@media (max-width: 1000px) {
+    .toolbar > vaadin-button {
+        padding: 0;
+        min-width: var(--lumo-size-m);
+
+        &::part(label) {
+            display: none;
+        }
+
+        &::part(prefix) {
+            margin: 0;
+        }
+    }
+}
+
+
+
+/*
+.toolbar {
+    container-name: toolbar;
+    container-type: inline-size;
+}
+
+@container toolbar (width < 750px) {
+    vaadin-button::part(label) {
+        display: none;
+    }
+    vaadin-button::part(prefix) {
+        margin: 0;
+    }
+    vaadin-button {
+        padding: 0;
+        min-width: var(--lumo-size-m);
+    }
+}
+*/

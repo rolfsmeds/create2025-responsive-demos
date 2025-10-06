@@ -1,14 +1,19 @@
 package org.example.base.ui;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.Layout;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.menu.MenuConfiguration;
 import com.vaadin.flow.server.menu.MenuEntry;
 
@@ -17,9 +22,26 @@ import static com.vaadin.flow.theme.lumo.LumoUtility.*;
 @Layout
 public final class MainLayout extends AppLayout {
 
+    private final SideNav sideNav = createSideNav();
+
     MainLayout() {
         setPrimarySection(Section.DRAWER);
-        addToDrawer(createHeader(), new Scroller(createSideNav()));
+        addToDrawer(createHeader(), new Scroller(sideNav));
+        addToNavbar(true, createMobileNav());
+    }
+
+    private Component createMobileNav() {
+        var mobileNavBar = new HorizontalLayout();
+        mobileNavBar.addClassNames("mobile-nav-bar");
+
+        MenuConfiguration.getMenuEntries().forEach(entry -> {
+            var icon = new Icon(entry.icon());
+            var link = new Anchor(entry.path(), entry.title());
+            link.add(icon);
+            mobileNavBar.add(link);
+        });
+
+        return mobileNavBar;
     }
 
     private Div createHeader() {
