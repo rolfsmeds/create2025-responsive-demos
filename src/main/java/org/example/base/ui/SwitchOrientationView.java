@@ -13,7 +13,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("orientation")
 @PageTitle("Orientation Switch")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Orientation")
+@Menu(order = 6, icon = "vaadin:clipboard-check", title = "Orientation")
 public class SwitchOrientationView extends Main {
 
     public SwitchOrientationView() {

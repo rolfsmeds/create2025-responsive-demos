@@ -17,7 +17,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("media-queries")
 @PageTitle("Media Queries")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Media Queries")
+@Menu(order = 7, icon = "vaadin:clipboard-check", title = "Media Queries")
 public class MediaQueriesView extends Main {
 
     public MediaQueriesView() {

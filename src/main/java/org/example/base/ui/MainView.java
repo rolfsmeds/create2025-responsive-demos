@@ -13,7 +13,6 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
  * This view shows up when a user navigates to the root ('/') of the application.
  */
 @Route
-@Menu(order = -100, icon = "vaadin:home", title = "Welcome!")
 public final class MainView extends Main {
 
     // TODO Replace with your own main view.

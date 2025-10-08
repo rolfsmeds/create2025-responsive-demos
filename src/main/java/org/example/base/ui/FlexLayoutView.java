@@ -17,7 +17,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("flexlayout")
 @PageTitle("FlexLayout")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "FlexLayout")
+@Menu(order = 8, icon = "vaadin:clipboard-check", title = "FlexLayout")
 public class FlexLayoutView extends Main {
 
     private Registration listener;

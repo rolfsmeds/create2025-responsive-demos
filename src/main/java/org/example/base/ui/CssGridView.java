@@ -12,7 +12,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("cssgrid")
 @PageTitle("CSS Grid Layout")
-@Menu(order = 2, icon = "vaadin:clipboard-check", title = "CSS Grid")
+@Menu(order = 5, icon = "vaadin:clipboard-check", title = "CSS Grid")
 public class CssGridView extends Main {
 
     public CssGridView() {

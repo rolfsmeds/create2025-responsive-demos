@@ -26,7 +26,7 @@ import java.util.List;
 
 @Route("responsivegrid")
 @PageTitle("Responsive Grid")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Responsive Grid")
+@Menu(order = 9, icon = "vaadin:clipboard-check", title = "Responsive Grid")
 public class ResponsiveGridView extends Main {
 
     private Registration listener;

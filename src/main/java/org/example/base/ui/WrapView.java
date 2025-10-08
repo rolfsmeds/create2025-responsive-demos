@@ -14,7 +14,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("wrap")
 @PageTitle("Wrap")
-@Menu(order = 0, icon = "vaadin:clipboard-check", title = "Wrap")
+@Menu(order = 4, icon = "vaadin:clipboard-check", title = "Wrap")
 public class WrapView extends Main {
 
     public WrapView() {
