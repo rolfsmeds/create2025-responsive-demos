@@ -16,8 +16,8 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.example.domain.Person;
 import org.example.domain.PersonRepository;
 
-@Route(value = "mdl/person", layout = MasterDetailView.class)
-@ParentLayout(MasterDetailView.class)
+@Route(value = "mdl/person", layout = MasterDetailView.class)   // <--
+@ParentLayout(MasterDetailView.class)                           // <--
 public class PersonDetailView extends Section implements RouterLayout, HasUrlParameter<Integer> {
 
     Person person = null;
@@ -58,16 +58,15 @@ public class PersonDetailView extends Section implements RouterLayout, HasUrlPar
 
     }
 
-    private void close() {
-        getUI().ifPresent(ui -> ui.navigate(MasterDetailView.class));
-    }
-
-    public void setPerson(Person person) {
-        binder.setBean(person);
-    }
 
     @Override
     public void setParameter(BeforeEvent beforeEvent, Integer id) {
         binder.setBean(PersonRepository.getPerson(id));
     }
+
+
+    private void close() {
+        getUI().ifPresent(ui -> ui.navigate(MasterDetailView.class));
+    }
+
 }

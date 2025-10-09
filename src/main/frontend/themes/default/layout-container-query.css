@@ -5,9 +5,15 @@
     flex-direction: row;
 }
 
+.media-queries-view {
+    container-name: view-root;
+    container-type: inline-size;
+}
 
-@media (max-width: 800px) {
+@container view-root (width < 600px) {
+
     .switching-layout {
         flex-direction: column;
     }
+
 }

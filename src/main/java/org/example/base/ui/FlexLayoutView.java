@@ -17,17 +17,17 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("flexlayout")
 @PageTitle("FlexLayout")
-@Menu(order = 8, icon = "vaadin:clipboard-check", title = "FlexLayout")
+@Menu(order = 8, icon = "vaadin:rotate-right", title = "FlexLayout")
 public class FlexLayoutView extends Main {
 
     private Registration listener;
 
-    FlexLayout layout = new FlexLayout();
+    FlexLayout layout = new FlexLayout();   // <--
 
     public FlexLayoutView() {
         setSizeFull();
 
-        layout.setFlexDirection(FlexLayout.FlexDirection.ROW);
+        layout.setFlexDirection(FlexLayout.FlexDirection.ROW);  // <--
         layout.addClassNames(
                 LumoUtility.Gap.MEDIUM
         );
@@ -47,20 +47,20 @@ public class FlexLayoutView extends Main {
         // Add browser window listener to observe width change
         Page page = attachEvent.getUI().getPage();
         listener = page.addBrowserWindowResizeListener(event -> {
-            adjustLayoutDirection(event.getWidth());
+            adjustLayoutDirection(event.getWidth());    // <--
         });
         // Adjust Grid according to initial width of the screen
         page.retrieveExtendedClientDetails(receiver -> {
             int browserWidth = receiver.getBodyClientWidth();
-            adjustLayoutDirection(browserWidth);
+            adjustLayoutDirection(browserWidth);        // <--
         });
     }
 
     private void adjustLayoutDirection(int width) {
         if (width > 800) {
-            layout.setFlexDirection(FlexLayout.FlexDirection.ROW);
+            layout.setFlexDirection(FlexLayout.FlexDirection.ROW);      // <--
         } else {
-            layout.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
+            layout.setFlexDirection(FlexLayout.FlexDirection.COLUMN);   // <--
         }
     }
 

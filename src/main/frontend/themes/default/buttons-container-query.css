@@ -1,0 +1,20 @@
+.toolbar {
+    container-name: toolbar;
+    container-type: inline-size;
+}
+
+
+@container toolbar (width < 750px) {
+
+    vaadin-button::part(label) {
+        display: none;
+    }
+    vaadin-button::part(prefix) {
+        margin: 0;
+    }
+    vaadin-button {
+        padding: 0;
+        min-width: var(--lumo-size-m);
+    }
+
+}

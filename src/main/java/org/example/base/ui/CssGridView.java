@@ -12,7 +12,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("cssgrid")
 @PageTitle("CSS Grid Layout")
-@Menu(order = 5, icon = "vaadin:clipboard-check", title = "CSS Grid")
+@Menu(order = 5, icon = "vaadin:grid", title = "CSS Grid")
 public class CssGridView extends Main {
 
     public CssGridView() {
@@ -23,8 +23,8 @@ public class CssGridView extends Main {
         layout.addClassNames(
                 LumoUtility.Display.GRID,
                 LumoUtility.Gap.MEDIUM,
-                LumoUtility.Grid.Column.COLUMNS_2,
-                LumoUtility.Grid.Breakpoint.Medium.COLUMNS_4
+                LumoUtility.Grid.Column.COLUMNS_2,              // <--
+                LumoUtility.Grid.Breakpoint.Medium.COLUMNS_4    // <--
         );
         this.add(layout);
 

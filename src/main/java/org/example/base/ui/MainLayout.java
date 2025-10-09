@@ -27,21 +27,6 @@ public final class MainLayout extends AppLayout {
     MainLayout() {
         setPrimarySection(Section.DRAWER);
         addToDrawer(createHeader(), new Scroller(sideNav));
-        addToNavbar(true, createMobileNav());
-    }
-
-    private Component createMobileNav() {
-        var mobileNavBar = new HorizontalLayout();
-        mobileNavBar.addClassNames("mobile-nav-bar");
-
-        MenuConfiguration.getMenuEntries().forEach(entry -> {
-            var icon = new Icon(entry.icon());
-            var link = new Anchor(entry.path(), entry.title());
-            link.add(icon);
-            mobileNavBar.add(link);
-        });
-
-        return mobileNavBar;
     }
 
     private Div createHeader() {
@@ -49,7 +34,7 @@ public final class MainLayout extends AppLayout {
         var appLogo = VaadinIcon.CUBES.create();
         appLogo.addClassNames(TextColor.PRIMARY, IconSize.LARGE);
 
-        var appName = new Span("Create Responsive App");
+        var appName = new Span("Responsive Demos");
         appName.addClassNames(FontWeight.SEMIBOLD, FontSize.LARGE);
 
         var header = new Div(appLogo, appName);

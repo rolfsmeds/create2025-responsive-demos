@@ -17,19 +17,17 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("media-queries")
 @PageTitle("Media Queries")
-@Menu(order = 7, icon = "vaadin:clipboard-check", title = "Media Queries")
+@Menu(order = 7, icon = "vaadin:css", title = "Media Queries")
 public class MediaQueriesView extends Main {
 
     public MediaQueriesView() {
 
-        this.addClassNames("media-queries-view");
+        this.addClassNames("media-queries-view");   // <--
 
         setSizeFull();
 
-        add(createToolbar());
-
         Div layout = new Div();
-        layout.addClassNames("switching-layout");
+        layout.addClassNames("switching-layout");   // <--
         this.add(layout);
 
         for (int i=0; i<3; i++) {
@@ -38,6 +36,8 @@ public class MediaQueriesView extends Main {
             card.add(new Span("Lorem ipsum dolor sit amet"));
             layout.add(card);
         }
+
+        // add(createToolbar());
 
     }
 

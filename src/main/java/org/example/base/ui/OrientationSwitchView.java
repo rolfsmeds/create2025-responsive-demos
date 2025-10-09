@@ -4,7 +4,6 @@ import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -13,18 +12,18 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @Route("orientation")
 @PageTitle("Orientation Switch")
-@Menu(order = 6, icon = "vaadin:clipboard-check", title = "Orientation")
-public class SwitchOrientationView extends Main {
+@Menu(order = 6, icon = "vaadin:rotate-right", title = "Orientation")
+public class OrientationSwitchView extends Main {
 
-    public SwitchOrientationView() {
+    public OrientationSwitchView() {
         setSizeFull();
 
         var layout = new Div();
         layout.addClassNames(
                 LumoUtility.Display.FLEX,
                 LumoUtility.Gap.MEDIUM,
-                LumoUtility.FlexDirection.COLUMN,
-                LumoUtility.FlexDirection.Breakpoint.Medium.ROW
+                LumoUtility.FlexDirection.COLUMN,                   // <--
+                LumoUtility.FlexDirection.Breakpoint.Medium.ROW     // <--
         );
         this.add(layout);
 

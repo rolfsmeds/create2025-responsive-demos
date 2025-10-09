@@ -1,28 +1,9 @@
-@import "media-queries.css";
+@import "layout-media-query.css";
+@import "layout-container-query.css";
+@import "buttons-media-query.css";
+@import "buttons-container-query.css";
 
-.mobile-nav-bar {
-    display: none;
-    width: 100%;
-    height: var(--lumo-size-xl);
-    justify-content: space-around;
-    align-items: stretch;
 
-    &[slot~="navbar-bottom"] {
-        display: flex;
-    }
-
-    & a {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-        font-size: var(--lumo-font-size-xs);
-
-        & vaadin-icon {
-            order: -1;
-        }
-    }
-}
 
 .user-details {
     display: grid;

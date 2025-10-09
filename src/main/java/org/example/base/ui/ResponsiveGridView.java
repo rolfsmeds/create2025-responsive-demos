@@ -26,7 +26,7 @@ import java.util.List;
 
 @Route("responsivegrid")
 @PageTitle("Responsive Grid")
-@Menu(order = 9, icon = "vaadin:clipboard-check", title = "Responsive Grid")
+@Menu(order = 9, icon = "vaadin:table", title = "Responsive Grid")
 public class ResponsiveGridView extends Main {
 
     private Registration listener;
@@ -48,6 +48,7 @@ public class ResponsiveGridView extends Main {
         grid.setSizeFull();
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
 
+        /* Special column only shown on small viewports: */
         smallScreenColumn = grid.addComponentColumn(person -> {
            Avatar avatar = createAvatar(person);
            avatar.addThemeVariants(AvatarVariant.LUMO_XLARGE);
@@ -62,26 +63,18 @@ public class ResponsiveGridView extends Main {
 
     }
 
-    private Avatar createAvatar(Person person) {
-        return new Avatar(person.getFirstName()+" "+getFullName(person));
-    }
-
-    private String getFullName(Person person) {
-        return person.getFirstName()+" "+person.getLastName();
-    }
-
     @Override
     protected void onAttach(AttachEvent attachEvent) {
         super.onAttach(attachEvent);
         // Add browser window listener to observe width change
         Page page = attachEvent.getUI().getPage();
         listener = page.addBrowserWindowResizeListener(event -> {
-            adjustGridColumns(event.getWidth());
+            adjustGridColumns(event.getWidth());    // <--
         });
         // Adjust Grid according to initial width of the screen
         page.retrieveExtendedClientDetails(receiver -> {
             int browserWidth = receiver.getBodyClientWidth();
-            adjustGridColumns(browserWidth);
+            adjustGridColumns(browserWidth);        // <--
         });
     }
 
@@ -90,9 +83,9 @@ public class ResponsiveGridView extends Main {
 
         grid.getColumns().forEach(column -> {
            if (column.equals(smallScreenColumn)) {
-               column.setVisible(isSmallScreen);
+               column.setVisible(isSmallScreen);    // <--
            } else {
-               column.setVisible(!isSmallScreen);
+               column.setVisible(!isSmallScreen);   // <--
            }
         });
     }
@@ -102,5 +95,13 @@ public class ResponsiveGridView extends Main {
         // Listener needs to be eventually removed in order to avoid resource leak
         listener.remove();
         super.onDetach(detachEvent);
+    }
+
+    private Avatar createAvatar(Person person) {
+        return new Avatar(person.getFirstName()+" "+getFullName(person));
+    }
+
+    private String getFullName(Person person) {
+        return person.getFirstName()+" "+person.getLastName();
     }
 }

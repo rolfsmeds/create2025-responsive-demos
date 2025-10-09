@@ -23,7 +23,7 @@ import java.util.List;
 
 @Route(value="formlayout")
 @PageTitle("Form Layout")
-@Menu(order = 2, icon = "vaadin:clipboard-check", title = "Form Layout")
+@Menu(order = 2, icon = "vaadin:form", title = "Form Layout")
 public class FormLayoutView extends VerticalLayout {
 
     public FormLayoutView() {
@@ -37,11 +37,12 @@ public class FormLayoutView extends VerticalLayout {
         PasswordField confirmPassword = new PasswordField("Confirm password");
 
         FormLayout formLayout = new FormLayout();
-        formLayout.setAutoResponsive(true);
-        formLayout.setExpandFields(true);
-        formLayout.setExpandColumns(true);
+        formLayout.setAutoResponsive(true);     // <--
+        formLayout.setExpandFields(true);       // <--
+        formLayout.setColumnWidth("200px");     // <--
+        formLayout.setExpandColumns(true);      // <--
 
-        formLayout.addFormRow(firstName, middleName, lastName);
+        formLayout.addFormRow(firstName, middleName, lastName); // <--
         formLayout.add(email, 2);
         formLayout.addFormRow(password, confirmPassword);
 

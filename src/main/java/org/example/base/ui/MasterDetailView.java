@@ -23,12 +23,11 @@ import org.example.domain.PersonRepository;
 import java.util.List;
 
 
-
 @Route(value="mdl", layout=MainLayout.class)
 @PageTitle("Master Detail View")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Master Detail View")
+@Menu(order = 1, icon = "vaadin:layout", title = "Master Detail View")
 @ParentLayout(MainLayout.class)
-public class MasterDetailView extends MasterDetailLayout {
+public class MasterDetailView extends MasterDetailLayout {  // <--
 
     private Registration listener;
 
@@ -48,10 +47,10 @@ public class MasterDetailView extends MasterDetailLayout {
         grid.setSizeFull();
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
 
-        this.setMaster(grid);
-        this.setMasterMinSize("400px");
-        this.setDetailSize("400px");
-        this.setContainment(Containment.VIEWPORT);
+        this.setMaster(grid);                           // <--
+        this.setMasterMinSize("400px");                 // <--
+        this.setDetailSize("400px");                    // <--
+        this.setContainment(Containment.VIEWPORT);      // <--
 
         grid.addSelectionListener(e -> {
             Person selectedPerson = e.getFirstSelectedItem().orElse(null);
@@ -62,20 +61,6 @@ public class MasterDetailView extends MasterDetailLayout {
             }
         });
 
-/*
-        smallScreenColumn = grid.addComponentColumn(person -> {
-           Avatar avatar = createAvatar(person);
-           avatar.addThemeVariants(AvatarVariant.LUMO_XLARGE);
-           Span name = new Span(getFullName(person));
-           name.addClassName("name");
-           Span email = new Span(person.getEmail());
-           email.addClassName("email");
-           Div layout = new Div(avatar, name, email);
-           layout.addClassName("user-details");
-           return layout;
-        });
-*/
-
     }
 
     private Avatar createAvatar(Person person) {
@@ -84,41 +69,5 @@ public class MasterDetailView extends MasterDetailLayout {
 
     private String getFullName(Person person) {
         return person.getFirstName()+" "+person.getLastName();
-    }
-
-/*
-    @Override
-    protected void onAttach(AttachEvent attachEvent) {
-        super.onAttach(attachEvent);
-        // Add browser window listener to observe width change
-        Page page = attachEvent.getUI().getPage();
-        listener = page.addBrowserWindowResizeListener(event -> {
-            adjustGridColumns(event.getWidth());
-        });
-        // Adjust Grid according to initial width of the screen
-        page.retrieveExtendedClientDetails(receiver -> {
-            int browserWidth = receiver.getBodyClientWidth();
-            adjustGridColumns(browserWidth);
-        });
-    }
-*/
-
-    private void adjustGridColumns(int width) {
-        boolean isSmallScreen = width < 800;
-
-        grid.getColumns().forEach(column -> {
-            if (column.equals(smallScreenColumn)) {
-                column.setVisible(isSmallScreen);
-            } else {
-                column.setVisible(!isSmallScreen);
-            }
-        });
-    }
-
-    @Override
-    protected void onDetach(DetachEvent detachEvent) {
-        // Listener needs to be eventually removed in order to avoid resource leak
-        if (listener != null) listener.remove();
-        super.onDetach(detachEvent);
     }
 }
