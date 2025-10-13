@@ -32,6 +32,11 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
+            <!-- Replace artifactId with vaadin-core to use only free components -->
+            <artifactId>vaadin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
@@ -78,7 +83,7 @@
                 <dependency>
                     <!-- Exclude development dependencies from production -->
                     <groupId>com.vaadin</groupId>
-                    <artifactId>vaadin-core</artifactId>
+                    <artifactId>vaadin</artifactId>
                     <exclusions>
                         <exclusion>
                             <groupId>com.vaadin</groupId>

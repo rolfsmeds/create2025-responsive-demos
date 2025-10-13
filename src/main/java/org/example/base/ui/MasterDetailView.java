@@ -49,7 +49,7 @@ public class MasterDetailView extends MasterDetailLayout {  // <--
 
         this.setMaster(grid);                           // <--
         this.setMasterMinSize("400px");                 // <--
-        this.setDetailSize("400px");                    // <--
+        this.setDetailSize("500px");                    // <--
         this.setContainment(Containment.VIEWPORT);      // <--
 
         grid.addSelectionListener(e -> {

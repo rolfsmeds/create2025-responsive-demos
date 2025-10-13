@@ -22,11 +22,13 @@ public class MediaQueriesView extends Main {
 
     public MediaQueriesView() {
 
+        /* See buttons-media-query.css and buttons-container-query.css */
         this.addClassNames("media-queries-view");   // <--
 
         setSizeFull();
 
         Div layout = new Div();
+        /* See layout-media-query.css and layout-container-query.css */
         layout.addClassNames("switching-layout");   // <--
         this.add(layout);
 

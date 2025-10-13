@@ -1,7 +1,9 @@
 @import "layout-media-query.css";
-@import "layout-container-query.css";
+/*@import "layout-container-query.css";*/
 @import "buttons-media-query.css";
-@import "buttons-container-query.css";
+/*@import "buttons-container-query.css";*/
+
+@import "widgets.css";
 
 
 

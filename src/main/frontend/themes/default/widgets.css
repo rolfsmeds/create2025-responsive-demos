@@ -1,0 +1,18 @@
+.kpi {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--lumo-space-xs);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    & > :first-child {
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 1.0;
+    }
+    & > :nth-child(2) {
+        color: var(--lumo-secondary-text-color);
+    }
+}
