@@ -51,6 +51,7 @@ public class MasterDetailView extends MasterDetailLayout {  // <--
         this.setMasterMinSize("400px");                 // <--
         this.setDetailSize("500px");                    // <--
         this.setContainment(Containment.VIEWPORT);      // <--
+        //this.setOverlayMode(OverlayMode.STACK);       // <--
 
         grid.addSelectionListener(e -> {
             Person selectedPerson = e.getFirstSelectedItem().orElse(null);

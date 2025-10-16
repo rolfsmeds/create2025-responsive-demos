@@ -1,16 +1,16 @@
 @media (max-width: 1000px) {
 
-    .toolbar > vaadin-button {
+    vaadin-button {
         padding: 0;
         min-width: var(--lumo-size-m);
+    }
 
-        &::part(label) {
-            display: none;
-        }
+    vaadin-button::part(label) {
+        display: none;
+    }
 
-        &::part(prefix) {
-            margin: 0;
-        }
+    vaadin-button::part(prefix) {
+        margin: 0;
     }
 
 }
